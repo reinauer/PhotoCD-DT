@@ -1,0 +1,7 @@
+**/__pycache__
+build/
+*.cue
+*.bin
+PhotoCD-DT-v*/
+PhotoCD-DT-v*.info
+PhotoCD-DT-v*.lha

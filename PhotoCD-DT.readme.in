@@ -1,0 +1,30 @@
+Short:    Datatype for Kodak PhotoCD Images (@PCD_VERSION@)
+Uploader: stefan.reinauer@coreboot.org (Stefan Reinauer)
+Author:   stefan.reinauer@coreboot.org (Stefan Reinauer), achimste@gmx.de (Achim Stegemann)
+Type:     util/dtype
+Version:  @PCD_VERSION@
+
+Minimum requirements:
+ * AmigaOS 3.2 (or a system with picture.datatype V44+)
+ * A CD-ROM drive
+ * A PhotoCD capable CD filesystem (e.g. ODFileSystem from
+   https://github.com/reinauer/ODFileSystem)
+
+PhotoCD-DT adds Kodak PhotoCD support to the Amiga DataTypes system.
+After installation, be sure to change the Default Application for PCD
+to MultiView (or your DataTypes capable image viewer of choice). Then
+you can just click on the pictures on a PhotoCD and they will open
+automatically
+
+The decoder used by photocd.datatype is derived from pcdtoppm from the
+xpcd package. The datatype decodes the image to RGB and hands that data
+straight to picture.datatype.
+
+64Base (6144*4096) images are supported. As with the original format, the
+decoder still needs the matching Photo CD companion files in the standard
+`IPE/.../64BASE` directory layout; the `.PCD` file alone does not contain
+the full 64Base image data.
+
+This datatype is released under the GNU General Public License v2.
+
+Latest version: https://github.com/reinauer/PhotoCD-DT
