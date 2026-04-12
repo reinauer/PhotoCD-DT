@@ -1,0 +1,54 @@
+;$VER photocd.datatype Install @PCD_VERSION@
+
+(set #dt-dir
+	(askdir
+		(prompt "Where do you store your datatypes ?")
+		(help @askdir-help)
+		(default "SYS:Classes/DataTypes")
+	)
+)
+
+(set #dc-dir
+	(askdir
+		(prompt "Where do you store your descriptor files ?")
+		(help @askdir-help)
+		(default "DEVS:DataTypes")
+	)
+)
+
+(set #prefs-dir
+	(askdir
+		(prompt "Where do you store your preferences for datatypes ?")
+		(help @askdir-help)
+		(default "SYS:Prefs/DataTypes")
+	)
+)
+
+(copyfiles
+	(prompt "photocd.datatype")
+	(source "Classes/DataTypes/photocd.datatype")
+	(dest #dt-dir)
+	(help @copyfiles-help)
+	(confirm)
+)
+
+(copyfiles
+	(source "Devs/DataTypes/PhotoCD")
+	(dest #dc-dir)
+)
+
+(copyfiles
+	(source "Env/DataTypes/photocd.prefs")
+	(dest "ENVARC:DataTypes")
+)
+
+(copyfiles
+	(source "Env/DataTypes/photocd.prefs")
+	(dest "ENV:DataTypes")
+)
+
+(copyfiles
+	(source "Prefs/PhotoCD")
+	(dest #prefs-dir)
+	(infos)
+)
