@@ -131,19 +131,14 @@ unsigned int photocdDecode_getWidth(photocdDecode *self)
 	switch (self->imageRotate) {
 		case 0:
 			return PCDLumaWidth[self->sceneNumber];
-			break;
 		case 1:
 			return PCDLumaHeight[self->sceneNumber];
-			break;
 		case 2:
 			return PCDLumaWidth[self->sceneNumber];
-			break;
 		case 3:
 			return PCDLumaHeight[self->sceneNumber];
-			break;
 		default:
 			return PCDLumaWidth[self->sceneNumber];
-			break;
 	}
 }
 
@@ -152,19 +147,14 @@ unsigned int photocdDecode_getHeight(photocdDecode *self)
 	switch (self->imageRotate) {
 		case 0:
 			return PCDLumaHeight[self->sceneNumber];
-			break;
 		case 1:
 			return PCDLumaWidth[self->sceneNumber];
-			break;
 		case 2:
 			return PCDLumaHeight[self->sceneNumber];
-			break;
 		case 3:
 			return PCDLumaWidth[self->sceneNumber];
-			break;
 		default:
 			return PCDLumaHeight[self->sceneNumber];
-			break;
 	}
 }
 
@@ -224,11 +214,9 @@ bool photocdDecode_monochromeMedia(photocdDecode *self) {
                 case     kBlackandwhiteReversal:
                 case     kBlackandwhiteHardcopy:
                     return true;
-                    break;
 
                 default:
                     return false;
-                    break;
             }
         }
         else {
@@ -383,7 +371,7 @@ void photocdDecode_getMetadata(photocdDecode *self, unsigned int select,
 					break;
 				case kphotoFinisherName:
 					// Don't return anything with a really exotic character set; the chances that
-					// it will be displayed correctly are negligable.
+					// it will be displayed correctly are negligible.
 					if (pcdFile->ipiHeader.photoFinisherCharSet < 5) {
 						copyWithoutPadding(value, pcdFile->ipiHeader.photoFinisherName, sizeof(pcdFile->ipiHeader.piwEquipmentManufacturer));
 					}
@@ -950,7 +938,7 @@ bool photocdDecode_parseFile(photocdDecode *self, const pcdFilenameType *in_file
 	self->imageHuffmanClass = (pcdFile->iciBase16.attributes >> 5) & 0x02;
 	off_t base4Stop = getPCD16(pcdFile->iciBase16.sectorStop4Base);
 	// Calculate the file locations that are based of variable sized data
-	// See the file decription above for why the calculation values
+	// See the file description above for why the calculation values
 	HCTOffset[k16Base] = base4Stop + 12;
 	ICDOffset[k16Base] = base4Stop + 14;
 	// unused in this implementation
