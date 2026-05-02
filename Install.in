@@ -1,4 +1,4 @@
-;$VER photocd.datatype Install @PCD_VERSION@
+;$VER: photocd.datatype Install @PCD_VERSION@
 
 (set #dt-dir
 	(askdir
