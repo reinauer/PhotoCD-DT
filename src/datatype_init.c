@@ -22,7 +22,7 @@
 #endif
 
 #ifndef PCD_VERSION_DATE
-#define PCD_VERSION_DATE "16-Apr-26"
+#error "PCD_VERSION_DATE must be supplied by version.mk"
 #endif
 
 #define PCD_STR2(value) #value

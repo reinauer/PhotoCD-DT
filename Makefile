@@ -65,7 +65,7 @@ DT_OBJS := \
 	$(addprefix $(DT_BUILD_DIR)/,$(addsuffix .o,$(DECODER_UNITS)))
 DT_DEPS := $(DT_OBJS:.o=.d)
 
-.PHONY: all datatype prefs dtprobe descriptor clean metadata runtime-assets lha lha-clean
+.PHONY: all datatype prefs dtprobe descriptor clean metadata runtime-assets lha lha-clean FORCE
 
 all: metadata runtime-assets datatype prefs
 
@@ -125,7 +125,7 @@ $(DEFAULT_PREFS_OUT): $(DEFAULT_PREFS_SRC)
 $(DT_BUILD_DIR):
 	mkdir -p $@
 
-$(DT_BUILD_DIR)/datatype_init.o: version.mk
+$(DT_BUILD_DIR)/datatype_init.o: version.mk FORCE
 $(DT_BUILD_DIR)/%.o: $(SRC_DIR)/%.c | $(DT_BUILD_DIR)
 	$(CC) $(DT_CFLAGS) $(DEPFLAGS) -c -o $@ $<
 
